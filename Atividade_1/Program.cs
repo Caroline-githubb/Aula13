@@ -1,19 +1,14 @@
 ﻿using System.Collections;
 using System.Linq;
-using static Aula13.Enum;
+using static Atividade_1.Enum;
 
-namespace Aula13
+namespace Atividade_1
 {
     public class Program
     {
         public static void Main(string[] args)
         {
             CodigosDeErros codigo = CodigosDeErros.Ok;
-            
-            
-            
-            
-
         }
     }
 

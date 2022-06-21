@@ -4,15 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Atividade02
+namespace Atividade_2
 {
     internal class Aluno
     {
         public int Matricula;
         public string Nome;
         public string Sobrenome;
-        public int Telefone;
-
+        public double Telefone;
     }
 }
-
