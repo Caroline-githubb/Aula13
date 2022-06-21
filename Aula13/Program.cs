@@ -1,10 +1,20 @@
-﻿namespace Aula13
+﻿using System.Collections;
+using System.Linq;
+using static Aula13.Enum;
+
+namespace Aula13
 {
-    internal class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
-            Console.WriteLine("Hello, World!");
+            CodigosDeErros codigo = CodigosDeErros.Ok;
+            
+            
+            
+            
+
         }
     }
+
 }
