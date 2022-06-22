@@ -7,33 +7,22 @@ using System.Threading.Tasks;
 
 namespace Atividade_2
 {
-    internal class Escola : Aluno
+    public class Escola
     {
         public Dictionary<int, Aluno> Matriculados = new Dictionary<int, Aluno>();
 
         public void CadastrarAluno()
         {
-            Console.Write("Quantos Alunos deseja cadastrar? ");
-            int n = int.Parse(Console.ReadLine());
-            Console.WriteLine();
-            for (int i = 0; i < n; i++)
+            Console.Write("Informe o código do novo aluno: ");
+            int codigo = int.Parse(Console.ReadLine() ?? string.Empty);
+            if(this.Matriculados.ContainsKey(codigo)) //caso não tenha a operação que o usuário digitar, aparecerá a mensagem
             {
-                Aluno alunoMatriculado = new Aluno();
-                Console.WriteLine("Digite os dados do aluno" + " " + (i + 1));
-                Console.Write("Digite a matricula: ");
-                alunoMatriculado.Matricula = int.Parse(Console.ReadLine());
-                Console.Write("Digite o nome: ");
-                alunoMatriculado.Nome = Console.ReadLine();
-                Console.Write("Digite o sobrenome: ");
-                alunoMatriculado.Sobrenome = Console.ReadLine();
-                Console.Write("Digite o telefone: ");
-                alunoMatriculado.Telefone = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                Console.WriteLine("---------------------------------");
-
-
-                Matriculados.Add(i, alunoMatriculado);
+                throw new Exception("O código informado já existe!");
             }
-
+            Console.WriteLine("Digite os dados do Aluno que deseja cadastrar:");
+            Aluno aluno = new Aluno();
+            aluno = LerAluno();
+            Matriculados.Add(codigo, aluno);
         }
         public void RemoverAluno()
         {
@@ -42,8 +31,9 @@ namespace Atividade_2
             {
                 Console.WriteLine($"Digite {local.Key} para remover {local.Value.Nome}");
             }
-            int alunoRemovido = int.Parse(Console.ReadLine());
+            int alunoRemovido = int.Parse(Console.ReadLine() ?? string.Empty);
             Matriculados.Remove(alunoRemovido);
+            Console.WriteLine("Aluno removido com sucesso!");
             Console.WriteLine("---------------------------------");
         }
         public void ListarMatriculas()
@@ -53,6 +43,21 @@ namespace Atividade_2
             {
                 Console.WriteLine($"{local.Key} - {local.Value.Nome}");
             }
+        }
+
+        public Aluno LerAluno()
+        {
+            Aluno alunoMatriculado = new Aluno();
+            Console.Write("Digite a matricula: ");
+            alunoMatriculado.Matricula = int.Parse(Console.ReadLine() ?? string.Empty);
+            Console.Write("Digite o nome: ");
+            alunoMatriculado.Nome = Console.ReadLine() ?? string.Empty;
+            Console.Write("Digite o sobrenome: ");
+            alunoMatriculado.Sobrenome = Console.ReadLine() ?? string.Empty;
+            Console.Write("Digite o telefone: ");
+            alunoMatriculado.Telefone = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            Console.WriteLine("---------------------------------");
+            return alunoMatriculado;
         }
     }
 }

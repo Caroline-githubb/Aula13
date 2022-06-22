@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Atividade_2
 {
-    internal class Aluno
+    public class Aluno
     {
         public int Matricula;
         public string Nome;
