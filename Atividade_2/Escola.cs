@@ -15,7 +15,7 @@ namespace Atividade_2
         {
             Console.Write("Informe o código do novo aluno: ");
             int codigo = int.Parse(Console.ReadLine() ?? string.Empty);
-            if(this.Matriculados.ContainsKey(codigo)) //caso não tenha a operação que o usuário digitar, aparecerá a mensagem
+            if(this.Matriculados.ContainsKey(codigo)) 
             {
                 throw new Exception("O código informado já existe!");
             }
